@@ -28,5 +28,6 @@ class Car {
                 carNames.add(name);
             }
         }
+        return carNames;
     }
 }
