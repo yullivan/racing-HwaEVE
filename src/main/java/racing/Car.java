@@ -1,28 +1,32 @@
 package racing;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 class Car {
-    private String name;
-    private int position;
+    public static String car; {
 
-    public Car(String name) {
-        this.name = name;
-        this.position = 0;
-    }
+        Scanner scanner = new Scanner(System.in);
 
-    public String getName() {
-        return name;
-    }
+        // 자동차 이름 입력 받기
+        System.out.print("자동차 이름을 입력하세요 (쉼표로 구분): ");
+        String carNamesInput = scanner.nextLine();
 
-    public int getPosition() {
-        return position;
-    }
-
-    public void move() {
-        Random random = new Random();
-        if (random.nextInt(6) + 1 >= 3) {
-            position++;
+        // 잘못된 입력 검증 및 자동차 이름 리스트 생성
+        List<String> carNames = new ArrayList<>();
+        while (true) {
+            if (carNamesInput.isEmpty()) {
+                break;
+            }
+            for (String name : carNamesInput.split(",")) {
+                // 자동차 이름 길이 검사
+                if (name.length() > 10) {
+                    System.out.println("[ERROR] 자동차 이름은 10자 이내여야 합니다.");
+                    continue; // 다음 이름으로 넘어감
+                }
+                carNames.add(name);
+            }
         }
     }
 }
