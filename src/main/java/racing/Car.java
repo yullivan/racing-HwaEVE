@@ -11,15 +11,18 @@ class Car {
         this.position = 0;
     }
 
-    public void moveForward() {
-        position++;
-    }
-
     public String getName() {
         return name;
     }
 
     public int getPosition() {
         return position;
+    }
+
+    public void move() {
+        Random random = new Random();
+        if (random.nextInt(6) + 1 >= 3) {
+            position++;
+        }
     }
 }
