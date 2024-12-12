@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 class Car {
-    public static String car; {
+    public static List<String> car () {
 
         Scanner scanner = new Scanner(System.in);
 
